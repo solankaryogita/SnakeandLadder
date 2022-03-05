@@ -19,6 +19,6 @@ class SnakeNLadder
 	{
 		int player1 = 0;
 		int currentplayerposition = 0;
-		System.out.println(player1+"   "+currentplayerposition);
+		System.out.println(player1+"......."+currentplayerposition);
 	}
 }
