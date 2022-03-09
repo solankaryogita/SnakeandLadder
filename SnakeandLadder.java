@@ -29,7 +29,7 @@ class SnakeNLadder
 	}
 	public void startGame()
 	{
-		int player1 =0, player2=0;
+		int player1 =0;
 		int currentPlayer=-1;
 		Scanner s = new Scanner(System.in);
 		String str;
@@ -40,13 +40,10 @@ class SnakeNLadder
 			System.out.println("Press r to roll Dice");
 			str = s.next();
 			diceValue = rollDice();
-			
-			
 			if(currentPlayer == -1)
 			{
 				player1 = calculatePlayerValue(player1,diceValue);
 				System.out.println("First Player :: " + player1);
-				//System.out.println("Second Player :: " + player2);
 				System.out.println("------------------");
 				if(isWin(player1))
 				{
@@ -60,6 +57,11 @@ class SnakeNLadder
 	public int calculatePlayerValue(int player, int diceValue)
 	{
 		player = player + diceValue;
+		if(player > WINPOINT)
+		{
+			player = player - diceValue;
+			return player;
+		}
 		if(null!=snake())
 		{
 			System.out.println("swallowed by snake");
